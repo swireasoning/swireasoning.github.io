@@ -51,55 +51,13 @@
 
 
   <style>
-    /* .section {
-      padding: 3rem 1.5rem;
-    }
-
-    .container {
-      max-width: 800px;
-    }
-
-    #video-container {
-      margin-bottom: 2rem;
-    }
-
-    #question-container {
-      margin-bottom: 2rem;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .button.is-primary {
-      background-color: #3273dc;
-      border-color: transparent;
-      color: #fff;
-      transition: background-color 0.3s ease;
-    }
-
-    .button.is-primary:hover {
-      background-color: #275ab0;
-      border-color: transparent;
-    }
-
-    .title img {
-      margin-right: 0.5rem;
-    }
-
-    .select {
-      width: 100%;
-      margin-top: 1rem;
-    } */
-
-    /* Hide the "Previewing Answers Submitted by Workers" message */
     crowd-alert {
       display: none !important;
     }
   </style>
 </head>
 <body>
+
 
 <section class="hero">
   <div class="hero-body" style="padding-bottom: 0.9rem;">
@@ -122,7 +80,7 @@
             <span class="author-block">
               <a href="https://dachuanshi.com/">Dachuan Shi</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/abed-asi-a3a92019/">Abed Asi</a><sup>2</sup>,</span>
+              <a href="https://www.linkedin.com/in/abed-asi-a3a92019/">Abedelkadir Asi</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://openreview.net/profile?id=~Keying_Li1">Keying Li</a><sup>2</sup>,</span>
             <span class="author-block">
@@ -147,21 +105,11 @@
               <!-- PDF Link. -->
               <span class="link-block">
                 <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
+                    class="external-link button is-normal is-rounded is-danger is-light">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
-                </a>
-              </span>
-              <!-- Arxiv Link. -->
-              <span class="link-block">
-                <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-alt"></i>
-                  </span>
-                  <span>ArXiv</span>
                   </a>
               </span>
               <!-- Code Link. -->
@@ -191,7 +139,12 @@
           style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.3em auto 0 auto;">
         <b>Figure 1:</b> Pass@1 <b>accuracy</b> under <i>unlimited</i> token budgets. 
         On mathematics and STEM reasoning benchmarks, 
-        SwiReasoning yields improvements of up to 
+        <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> yields improvements of up to 
         <span style="color: #7A9A8D; font-weight: bold;">+2.8%</span> and 
         <span style="color: #7A9A8D; font-weight: bold;">+2.0%</span>, respectively.
       </h2>
@@ -206,7 +159,12 @@
       <h2 class="subtitle has-text-centered" 
           style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.3em auto 0 auto;">
         <b>Figure 2:</b> Token <b>efficiency</b> (accuracy per token compared to standard CoT), under <i>limited</i> token budgets. 
-        Across reasoning LLM families and sizes, SwiReasoning brings average efficiency improvements of up to 
+        Across reasoning LLM families and sizes, <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> brings average efficiency improvements of up to 
         <span style="color: #7A9A8D; font-weight: bold;">+79%</span>.
       </h2>
     </div>
@@ -216,16 +174,19 @@
 
 <section class="section" style="padding-bottom: 0.5rem;">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">
            👀 TL;DR
         </h2>
-        <!-- <h2 class="title is-3">Abstract</h2> -->
-        <div class="content has-text-justified">
+        <div class="content has-text-justified" >
           <p>
-            SwiReasoning is a training-free method for reasoning LLMs that dynamically switches between explicit and latent thinking, with a switch count control mechanism to suppress overthinking.
+            <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> is a <strong>training-free</strong> method for reasoning LLMs that dynamically switches between explicit and latent thinking, with a switch count control mechanism to suppress overthinking.
           </p>
         </div>
       </div>
@@ -237,16 +198,21 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">🎥 SwiReasoning Demo</h2>
+        <h2 class="title is-3">🎥 <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> Demo</h2>
 
         <figure class="has-text-centered" style="margin: 0;">
-          <video width="95%" controls style="display:block; margin:0 auto;">
+          <video width="100%" controls style="display:block; margin:0 auto;">
             <source src="./static/videos/demo.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <figcaption class="subtitle has-text-centered"
-            style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.6em auto 0;">
-            Comparison of solving the same question using the same reasoning LLM (6s vs. 1min).
+            style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 100%; margin: 0.6em auto 0;">
+            <b>Video 1:</b> Comparison of solving the same question using the same reasoning LLM (6s vs. 1min).
           </figcaption>
         </figure>
 
@@ -261,12 +227,37 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">
-           📄 Abstract
+           🌟 Abstract
         </h2>
         <!-- <h2 class="title is-3">Abstract</h2> -->
         <div class="content has-text-justified">
           <p>
-            Recent work shows that, beyond discrete reasoning through explicit chain-of-thought steps, which are limited by the boundaries of natural languages, large language models (LLMs) can also reason continuously in latent space, allowing richer information per step and thereby improving token efficiency. Despite this promise, latent reasoning still faces two challenges, especially in training-free settings: 1) purely latent reasoning broadens the search distribution by maintaining multiple implicit paths, which diffuses probability mass, introduces noise, and impedes convergence to a single high-confidence solution, thereby hurting accuracy; and 2) overthinking persists even without explicit text, wasting tokens and degrading efficiency. To address these issues, we introduce SwiReasoning, a training-free framework for LLM reasoning which features two key innovations: 1) SwiReasoning dynamically switches between explicit and latent reasoning, guided by block-wise confidence estimated from entropy trends in next-token distributions, to balance exploration and exploitation and promote timely convergence. 2) By limiting the maximum number of thinking-block switches, SwiReasoning curbs overthinking and improves token efficiency across varying problem difficulties. On widely used mathematics and STEM benchmarks, SwiReasoning consistently improves average accuracy by 1.5%–2.8% across reasoning LLMs of different model families and scales. Furthermore, under constrained budgets, SwiReasoning improves average token efficiency by 56%-79%, with larger gains as budgets tighten.
+            Recent work shows that, beyond discrete reasoning through explicit chain-of-thought steps, which are limited by the boundaries of natural languages, large language models (LLMs) can also reason continuously in latent space, allowing richer information per step and thereby improving token efficiency. Despite this promise, latent reasoning still faces two challenges, especially in training-free settings: 1) purely latent reasoning broadens the search distribution by maintaining multiple implicit paths, which diffuses probability mass, introduces noise, and impedes convergence to a single high-confidence solution, thereby hurting accuracy; and 2) overthinking persists even without explicit text, wasting tokens and degrading efficiency. To address these issues, we introduce <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span>, a training-free framework for LLM reasoning which features two key innovations: 1) <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> dynamically switches between explicit and latent reasoning, guided by block-wise confidence estimated from entropy trends in next-token distributions, to balance exploration and exploitation and promote timely convergence. 2) By limiting the maximum number of thinking-block switches, <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> curbs overthinking and improves token efficiency across varying problem difficulties. On widely used mathematics and STEM benchmarks, <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> consistently improves average accuracy by 1.5%–2.8% across reasoning LLMs of different model families and scales. Furthermore, under constrained budgets, <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> improves average token efficiency by 56%-79%, with larger gains as budgets tighten.
           </p>
         </div>
       </div>
@@ -279,7 +270,12 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
         <h2 class="title is-3">
-          🌟 SwiReasoning Framework
+          🔍 <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> Pipeline
         </h2> 
       </div>
     </div>
@@ -288,7 +284,12 @@
             <img id="model" width="90%" src="./static/images/method.png">
             <h2 class="subtitle has-text-centered" 
                 style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.3em auto 0 auto;">
-              <b>Figure 3:</b> SwiReasoning framework. (a) Dynamic mode switching alternates between explicit and latent
+              <b>Figure 3:</b> <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> framework. (a) Dynamic mode switching alternates between explicit and latent
               thinking based on block-wise confidence estimated from entropy trends. (b) A switch count control mechanism
               limits the maximum number of thinking-block transitions, suppressing overthinking before the final answer.
             </h2>
@@ -311,7 +312,17 @@
             <img id="model" width="70%" src="./static/images/acc-single.png">
             <h2 class="subtitle has-text-centered" 
                 style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 85%; margin: 0.5em auto 0 auto;">
-              <b>Table 1:</b> Comparison of SwiReasoning and CoT with sampling, CoT with greedy decoding, and Soft Thinking on mathematics and STEM benchmarks. SwiReasoning improves accuracy by <span style="color: #7A9A8D; font-weight: bold;">+2.17%</span> on average.
+              <b>Table 1:</b> Comparison of <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> and CoT with sampling, CoT with greedy decoding, and Soft Thinking on mathematics and STEM benchmarks. <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> improves accuracy by <span style="color: #7A9A8D; font-weight: bold;">+2.17%</span> on average.
             </h2>
         </div>
   </div>
@@ -332,7 +343,12 @@
             <img id="model" width="80%" src="./static/images/eff-single.png">
             <h2 class="subtitle has-text-centered" 
                 style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 91%; margin: 0.5em auto 0 auto;">
-              <b>Figure 4:</b> Token efficiency comparisons. SwiReasoning achieves the highest token efficiency throughout all token budgets in 13 out of 15 evaluations, with an efficiency improvement of <span style="color: #7A9A8D; font-weight: bold;">+84%</span> over CoT on average.
+              <b>Figure 4:</b> Token efficiency comparisons. <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> achieves the highest token efficiency throughout all token budgets in 13 out of 15 evaluations, with an efficiency improvement of <span style="color: #7A9A8D; font-weight: bold;">+84%</span> over CoT on average.
             </h2>
         </div>
   </div>
@@ -352,16 +368,21 @@
             <img id="model" width="80%" src="./static/images/passk.png">
             <h2 class="subtitle has-text-centered" 
                 style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 80%; margin: 0.5em auto 0 auto;">
-              <b>Figure 5:</b> Pass@k accuracy evaluation with Qwen3-8B on AIME 2024 and 2025 benchmarks. SwiReasoning achieves maximum reasoning accuracies <span style="color: #7A9A8D; font-weight: bold;">+50%</span> earlier compared to CoT on average.
+              <b>Figure 5:</b> Pass@k accuracy evaluation with Qwen3-8B on AIME 2024 and 2025 benchmarks. <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span> achieves maximum reasoning accuracies <span style="color: #7A9A8D; font-weight: bold;">+50%</span> earlier compared to CoT on average.
             </h2>
         </div>
   </div>
 </section>
 
-<!-- 
-<section class="section" id="BibTeX">
+
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title">✨ BibTeX</h2>
     <pre><code>
 
   </code></pre>
@@ -376,7 +397,7 @@
         <div class="content">
           <p>
             This webiste is adpated from <a rel="template1" href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a rel="template2"
-            href="https://gligen.github.io/">GLIGEN</a>, under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License.
+            href="https://gligen.github.io/">GLIGEN</a>, under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License. We thank the contributors of these templates.
           </p>
         </div>
       </div>
