@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SwiReasoning: Switch-Thinking in Latent and Explicit for Pareto-Superior Reasoning LLMs">
+  <meta name="keywords" content="Reasoning, LLMs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SwiReasoning: Switch-Thinking in Latent and Explicit for Pareto-Superior Reasoning LLMs</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="icon" href="./static/images/icon.png">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+
+
+
+  <style>
+    /* .section {
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+
+    #video-container {
+      margin-bottom: 2rem;
+    }
+
+    #question-container {
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button.is-primary {
+      background-color: #3273dc;
+      border-color: transparent;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .button.is-primary:hover {
+      background-color: #275ab0;
+      border-color: transparent;
+    }
+
+    .title img {
+      margin-right: 0.5rem;
+    }
+
+    .select {
+      width: 100%;
+      margin-top: 1rem;
+    } */
+
+    /* Hide the "Previewing Answers Submitted by Workers" message */
+    crowd-alert {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body" style="padding-bottom: 0.9rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <!-- <img src="./static/image/worldevallogo.png" style="width:6em;vertical-align: middle" alt="Logo"/>  -->
+            <!-- <h1 class="title is-1 publication-title" style="display: inline-block;">SwiReasoning: Switch-Thinking in Latent and Explicit for Pareto-Superior Reasoning LLMs</h1> -->
+            <h1 class="title is-1 publication-title" style="display: inline-block; text-align: center;">
+            <span style="
+              background: linear-gradient(90deg, #7A9A8D, #2e7bb3, #5bc0de); 
+              -webkit-background-clip: text; 
+              -webkit-text-fill-color: transparent;
+              font-weight: bold;">
+              SwiReasoning</span>: Switch-Thinking in Latent and Explicit for Pareto-Superior Reasoning LLMs
+          </h1>
+          </div>
+          <div class="is-size-5 publication-authors" style="margin-top: 1em;">
+            <span class="author-block">
+              <a href="https://dachuanshi.com/">Dachuan Shi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/abed-asi-a3a92019/">Abed Asi</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Keying_Li1">Keying Li</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://xiangchi-yuan.github.io/">Xiangchi Yuan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://leyanpan.github.io/">Leyan Pan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://wenke.gtisc.gatech.edu/">Wenke Lee</a><sup>1</sup><sup>,†</sup>,</span>
+            <span class="author-block">
+              <a href="https://wendy-xiao.github.io/">Wen Xiao</a><sup>2</sup><sup>,†</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Georgia Tech,</span>
+            <span class="author-block"><sup>2</sup>Microsoft</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><span class="equal-contribution" style="font-size: 0.8em;">† Corresponding authors</span></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-alt"></i>
+                  </span>
+                  <span>ArXiv</span>
+                  </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/sdc17/SwiReasoning"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class=" teaser" style="margin-top: 0.6rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding-bottom: 0.5rem;">
+      <img id="teaser" width="95%" src="./static/images/acc.png" style="display: block; margin: 0 auto;">
+      <h2 class="subtitle has-text-centered" 
+          style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.3em auto 0 auto;">
+        <b>Figure 1:</b> Pass@1 <b>accuracy</b> under <i>unlimited</i> token budgets. 
+        On mathematics and STEM reasoning benchmarks, 
+        SwiReasoning yields improvements of up to 
+        <span style="color: #7A9A8D; font-weight: bold;">+2.8%</span> and 
+        <span style="color: #7A9A8D; font-weight: bold;">+2.0%</span>, respectively.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" style="margin-top: 0.2rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding-top: 0.2rem; padding-bottom: 0.3rem;">
+      <img id="teaser" width="93%" src="./static/images/eff.png" style="display: block; margin: 0 auto;">
+      <h2 class="subtitle has-text-centered" 
+          style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.3em auto 0 auto;">
+        <b>Figure 2:</b> Token <b>efficiency</b> (accuracy per token compared to standard CoT), under <i>limited</i> token budgets. 
+        Across reasoning LLM families and sizes, SwiReasoning brings average efficiency improvements of up to 
+        <span style="color: #7A9A8D; font-weight: bold;">+79%</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-bottom: 0.5rem;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">
+           👀 TL;DR
+        </h2>
+        <!-- <h2 class="title is-3">Abstract</h2> -->
+        <div class="content has-text-justified">
+          <p>
+            SwiReasoning is a training-free method for reasoning LLMs that dynamically switches between explicit and latent thinking, with a switch count control mechanism to suppress overthinking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="margin-bottom: 0.3rem; padding-bottom:0.6rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🎥 SwiReasoning Demo</h2>
+
+        <figure class="has-text-centered" style="margin: 0;">
+          <video width="95%" controls style="display:block; margin:0 auto;">
+            <source src="./static/videos/demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption class="subtitle has-text-centered"
+            style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.6em auto 0;">
+            Comparison of solving the same question using the same reasoning LLM (6s vs. 1min).
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom: 0.5rem;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">
+           📄 Abstract
+        </h2>
+        <!-- <h2 class="title is-3">Abstract</h2> -->
+        <div class="content has-text-justified">
+          <p>
+            Recent work shows that, beyond discrete reasoning through explicit chain-of-thought steps, which are limited by the boundaries of natural languages, large language models (LLMs) can also reason continuously in latent space, allowing richer information per step and thereby improving token efficiency. Despite this promise, latent reasoning still faces two challenges, especially in training-free settings: 1) purely latent reasoning broadens the search distribution by maintaining multiple implicit paths, which diffuses probability mass, introduces noise, and impedes convergence to a single high-confidence solution, thereby hurting accuracy; and 2) overthinking persists even without explicit text, wasting tokens and degrading efficiency. To address these issues, we introduce SwiReasoning, a training-free framework for LLM reasoning which features two key innovations: 1) SwiReasoning dynamically switches between explicit and latent reasoning, guided by block-wise confidence estimated from entropy trends in next-token distributions, to balance exploration and exploitation and promote timely convergence. 2) By limiting the maximum number of thinking-block switches, SwiReasoning curbs overthinking and improves token efficiency across varying problem difficulties. On widely used mathematics and STEM benchmarks, SwiReasoning consistently improves average accuracy by 1.5%–2.8% across reasoning LLMs of different model families and scales. Furthermore, under constrained budgets, SwiReasoning improves average token efficiency by 56%-79%, with larger gains as budgets tighten.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="margin-top: 0.0rem; padding-bottom:0.6rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">
+          🌟 SwiReasoning Framework
+        </h2> 
+      </div>
+    </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="90%" src="./static/images/method.png">
+            <h2 class="subtitle has-text-centered" 
+                style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 97%; margin: 0.3em auto 0 auto;">
+              <b>Figure 3:</b> SwiReasoning framework. (a) Dynamic mode switching alternates between explicit and latent
+              thinking based on block-wise confidence estimated from entropy trends. (b) A switch count control mechanism
+              limits the maximum number of thinking-block transitions, suppressing overthinking before the final answer.
+            </h2>
+        </div>
+  </div>
+</section>
+
+
+<section class="section" style="margin-top: 0.0rem;padding-bottom:0.6rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">
+          📊 Pass@1 accuracy
+        </h2> 
+      </div>
+    </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="70%" src="./static/images/acc-single.png">
+            <h2 class="subtitle has-text-centered" 
+                style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 85%; margin: 0.5em auto 0 auto;">
+              <b>Table 1:</b> Comparison of SwiReasoning and CoT with sampling, CoT with greedy decoding, and Soft Thinking on mathematics and STEM benchmarks. SwiReasoning improves accuracy by <span style="color: #7A9A8D; font-weight: bold;">+2.17%</span> on average.
+            </h2>
+        </div>
+  </div>
+</section>
+
+
+<section class="section" style="margin-top: 0.0rem;padding-bottom:0.6rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">
+          📈 Token efficiency
+        </h2> 
+      </div>
+    </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="80%" src="./static/images/eff-single.png">
+            <h2 class="subtitle has-text-centered" 
+                style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 91%; margin: 0.5em auto 0 auto;">
+              <b>Figure 4:</b> Token efficiency comparisons. SwiReasoning achieves the highest token efficiency throughout all token budgets in 13 out of 15 evaluations, with an efficiency improvement of <span style="color: #7A9A8D; font-weight: bold;">+84%</span> over CoT on average.
+            </h2>
+        </div>
+  </div>
+</section>
+
+<section class="section" style="margin-top: 0.0rem;padding-bottom:0.6rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">
+          📈 Pass@k accuracy
+        </h2> 
+      </div>
+    </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="80%" src="./static/images/passk.png">
+            <h2 class="subtitle has-text-centered" 
+                style="font-family: Consolas, monospace; font-size: 15px; line-height: 1.4; max-width: 80%; margin: 0.5em auto 0 auto;">
+              <b>Figure 5:</b> Pass@k accuracy evaluation with Qwen3-8B on AIME 2024 and 2025 benchmarks. SwiReasoning achieves maximum reasoning accuracies <span style="color: #7A9A8D; font-weight: bold;">+50%</span> earlier compared to CoT on average.
+            </h2>
+        </div>
+  </div>
+</section>
+
+<!-- 
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+
+  </code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webiste is adpated from <a rel="template1" href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a rel="template2"
+            href="https://gligen.github.io/">GLIGEN</a>, under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+
+
+<script>
+  let data = [];
+  let currentIndex = 0;
+  const videoUrlPrefix = "https://videounderstanding.s3.us-east-2.amazonaws.com/";
+
+  function loadCSV() {
+    $.ajax({
+      type: "GET",
+      url: "./static/webdemo_data.csv",
+      dataType: "text",
+      success: function(response) {
+        data = $.csv.toObjects(response);
+        updateContent();
+      }
+    });
+  }
+
+  function updateContent() {
+    if (data.length > 0 && currentIndex >= 0 && currentIndex < data.length) {
+      const currentData = data[currentIndex];
+      const videoUrl = videoUrlPrefix + currentData.video_url;
+      $('#video-source').attr('src', videoUrl);
+      $('#example-video')[0].load();
+      $('#question').text(currentData.question);
+      $('#discipline').text(currentData.domain);
+      $('#subdiscipline').text(currentData.subdomain);
+      const options = [currentData.option_a, currentData.option_b, currentData.option_c, currentData.option_d];
+      $('#options').empty();
+      options.forEach(option => {
+        $('#options').append(`<option value="${option}">${option}</option>`);
+      });
+    }
+  }
+
+  $('#next-button').on('click', function() {
+    if (currentIndex < data.length - 1) {
+      currentIndex++;
+      updateContent();
+    }
+  });
+
+  $('#prev-button').on('click', function() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateContent();
+    }
+  });
+
+  $(document).ready(function() {
+    loadCSV();
+    
+    const observer = new MutationObserver(() => {
+      const alertElement = document.querySelector('crowd-form').shadowRoot.querySelector('crowd-alert').shadowRoot.querySelector('awsui-alert');
+      if (alertElement) {
+        alertElement.style.display = 'none';
+      }
+    });
+    
+    observer.observe(document.querySelector('crowd-form').shadowRoot, { childList: true, subtree: true });
+  });
+</script>
+
+
+<!-- Additional libraries for parsing CSV -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"></script>
+
+</body>
+</html>
